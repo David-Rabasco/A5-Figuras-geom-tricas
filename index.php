@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +10,20 @@
     <title>Figuras geométricas</title>
 </head>
 <body>
-    <form>
+    <form method="post" action="lados.php">
         <h1>Elige una figura</h1>
-        <select id="figura" style="max-width: 350px;">
+        <select id="figura" name="figura" style="max-width: 350px;">
             <legend for="figura">Figuras geométricas</legend>
-            <option value="triangulo" name="triangulo" id="triangulo">Triángulo</option>
+            <option value="triangulo">Triángulo</option>
             <br>
-            <option value="rectangulo" name="rectangulo" id="rectangulo">Rectángulo</option>
+            <option value="rectangulo">Rectángulo</option>
             <br>
-            <option value="cuadrado" name="cuadrado" id="cuadrado">Cuadrado</option>
+            <option value="cuadrado">Cuadrado</option>
             <br>
-            <option value="circulo" name="circulo" id="circulo">Círculo</option>
+            <option value="circulo">Círculo</option>
             <br>
         </select>
+        <input type="submit" value="Elegir" name="elegir">
     </form>
 </body>
 </html>
