@@ -23,7 +23,7 @@ session_start()
             <option value="circulo">Círculo</option>
             <br>
         </select>
-        <input type="submit" value="Elegir" name="elegir">
+        <input type="submit" name="elegir" value="Elegir">
     </form>
 </body>
 </html>
