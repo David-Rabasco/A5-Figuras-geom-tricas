@@ -12,6 +12,7 @@ session_start()
 <body>
     <form method="post" action="lados.php">
         <h1>Elige una figura</h1>
+        <!-- PENDIENTE VALIDACION -->
         <select id="figura" name="figura" style="max-width: 350px;">
             <legend for="figura">Figuras geométricas</legend>
             <option value="triangulo">Triángulo</option>

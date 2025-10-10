@@ -13,6 +13,7 @@ echo($_SESSION['figura']);
     <title>Lados</title>
 </head>
 <body>
+    <!-- PENDIENTE VALIDACION -->
     <h1><?php echo $_SESSION['figura']; ?></h1>
     <form method="post" action="resultado.php">
         <p>Introduce los lados</p>
