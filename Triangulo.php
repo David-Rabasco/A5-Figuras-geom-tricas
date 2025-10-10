@@ -6,7 +6,8 @@
         public $lado3;
 
         //Constructor
-        public function __construct($lado1, $lado2, $lado3){
+        public function __construct($tipoFigura, $lado1, $lado2, $lado3){
+            $this->tipoFigura = $tipoFigura;
             $this->lado1 = $lado1;
             $this->lado2 = $lado2;
             $this->lado3 = $lado3;

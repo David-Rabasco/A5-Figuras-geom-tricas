@@ -4,7 +4,8 @@
         public $lado2;
 
         //Constructor
-        public function __construct($lado1, $lado2){
+        public function __construct($tipoFigura, $lado1, $lado2){
+            $this->tipoFigura = $tipoFigura;
             $this->lado1 = $lado1;
             $this->lado2 = $lado2;
         }

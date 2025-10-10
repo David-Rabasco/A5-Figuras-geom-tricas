@@ -3,11 +3,11 @@ session_start();
 //Actúo en función de la figura recibida:
 switch($_SESSION['figura']){
     case 'triangulo':
-        $figura = new Triangulo($lado1, $lado2, $lado3);
+        $figura = new Triangulo("triangulo", $lado1, $lado2, $lado3);
         echo "triangulo";
         break;
     case 'rectangulo':
-        $figura = new Rectangulo($lado1, $lado2);
+        $figura = new Rectangulo("rectangulo", $lado1, $lado2);
         echo "rectangulo";
         break;
     case 'cuadrado':
