@@ -17,10 +17,40 @@ echo($_SESSION['figura']);
     <h1><?php echo $_SESSION['figura']; ?></h1>
     <form method="post" action="resultado.php">
         <p>Introduce los lados</p>
-        <label for="num1">Lado 1: </label>
-        <input type="number" id="num1" name="num1">
-        <label for="num2">Lado 2: </label>
-        <input type="number" id="num2" name="num2">
+        <?php
+            switch($_SESSION['figura']){
+                case 'triangulo':
+                    ?>
+                    <label for="num1">Lado 1: </label>
+                    <input type="number" id="num1" name="num1">
+                    <label for="num2">Lado 2: </label>
+                    <input type="number" id="num2" name="num2">
+                    <label for="num3">Lado 3: </label>
+                    <input type="number" id="num3" name="num3">
+                    <?php
+                    break;
+                case 'rectangulo':
+                    ?>
+                    <label for="num1">Lado 1: </label>
+                    <input type="number" id="num1" name="num1">
+                    <label for="num2">Lado 2: </label>
+                    <input type="number" id="num2" name="num2">
+                    <?php
+                    break;
+                case 'cuadrado':
+                    ?>
+                    <label for="num1">Lado 1: </label>
+                    <input type="number" id="num1" name="num1">
+                    <?php
+                    break;
+                case 'circulo':
+                    ?>
+                    <label for="num1">Radio: </label>
+                    <input type="number" id="num1" name="num1">
+                    <?php
+                    break;
+            }
+        ?>
         <input type="submit" name="enviar" value="Enviar datos">
     </form>
 </body>
