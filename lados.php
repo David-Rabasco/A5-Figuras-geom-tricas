@@ -49,6 +49,9 @@ echo($_SESSION['figura']);
                     <input type="number" id="num1" name="num1">
                     <?php
                     break;
+                case '':
+                    header("Location: index.php");
+                    break;
             }
         ?>
         <input type="submit" name="enviar" value="Enviar datos">
