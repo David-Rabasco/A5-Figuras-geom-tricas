@@ -1,4 +1,5 @@
 <?php
+    include_once "FiguraGeometrica.php";
     class Triangulo extends FiguraGeometrica{
 
         //Atributos

@@ -1,4 +1,5 @@
-<?php
+<?php     
+    include_once "FiguraGeometrica.php";
     class Rectangulo extends FiguraGeometrica{
         //Atributos
         public $lado2;

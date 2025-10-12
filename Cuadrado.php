@@ -1,4 +1,5 @@
 <?php
+    include_once "FiguraGeometrica.php";
     class Cuadrado extends FiguraGeometrica{
         
         //Utiliza atributos y constructor de FiguraGeometrica
