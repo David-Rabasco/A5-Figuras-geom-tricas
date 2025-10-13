@@ -2,7 +2,7 @@
 session_start();
 
 $_SESSION['figura'] = isset($_POST['figura']) ? $_POST['figura']: "";
-echo($_SESSION['figura']);
+
 ?>
 
 <!DOCTYPE html>
