@@ -15,8 +15,14 @@ switch($_SESSION['figura']){
         $lado2 = $_SESSION['lado2'];
         $lado3 = $_SESSION['lado3'];
         $figura = new Triangulo($_SESSION['figura'], $lado1, $lado2, $lado3);
-
-        echo $_SESSION['figura'];
+        if($figura->trianguloValido()){
+            echo "<h3>Has elegido un ". $figura->tipoFigura . " con lados " . $figura->lado1 . ", " . $figura->lado2 . " y " . $figura->lado3 . "</h3>";
+            echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
+            echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
+        } else {
+            //Volver a pedir los lados
+            echo "esta mal";
+        }
         break;
     case 'rectangulo':
         $_SESSION['lado1'] = isset($_POST['num1']) ? $_POST['num1']: 0;
@@ -24,13 +30,17 @@ switch($_SESSION['figura']){
         $lado1 = $_SESSION['lado1'];
         $lado2 = $_SESSION['lado2'];
         $figura = new Rectangulo($_SESSION['figura'], $lado1, $lado2);
-        echo $_SESSION['figura'];
+        echo "<h3>Has elegido un ". $figura->tipoFigura . " con lados " . $figura->lado1 . ", " . $figura->lado2 . "</h3>";
+            echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
+            echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
         break;
     case 'cuadrado':
         $_SESSION['lado1'] = isset($_POST['num1']) ? $_POST['num1']: 0;
         $lado1 = $_SESSION['lado1'];
         $figura = new Cuadrado($_SESSION['figura'], $lado1);
-        echo $_SESSION['figura'];
+        echo "<h3>Has elegido un ". $figura->tipoFigura . " con lados " . $figura->lado1 . "</h3>";
+            echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
+            echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
         break;
     case 'circulo':
         $_SESSION['lado1'] = isset($_POST['num1']) ? $_POST['num1']: 0;
