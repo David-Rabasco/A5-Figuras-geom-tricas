@@ -22,11 +22,11 @@
 
         //Métodos
         public function calcularArea(){
-
+            return $this->lado1 * $this->lado2;
         }
 
         public function calcularPerimetro(){
-            
+            return 2 * ($this->lado1 + $this->lado2);
         }
     }
 ?>

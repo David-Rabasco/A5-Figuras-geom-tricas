@@ -14,11 +14,11 @@
         //Métodos
 
         public function calcularArea(){
-
+            return pi() * ($this->lado1 ** 2);
         }
 
         public function calcularPerimetro(){
-            
+            return 2 * pi() * $this->lado1;
         }
     }
 ?>
