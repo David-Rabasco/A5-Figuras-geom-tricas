@@ -24,11 +24,9 @@ switch($_SESSION['figura']){
             echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
             echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
         } else {
-            //Volver a pedir los lados
-            echo $lado1;
-            echo $lado2;
-            echo $lado3;
-            echo "esta mal";
+            //Triangulo inválido vuelve a pedir los lados
+            header("Location: lados.php?trianguloNoValido=true&lado1=$lado1&lado2=$lado2&lado3=$lado3");
+            exit();
         }
         break;
     case 'rectangulo':

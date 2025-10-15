@@ -32,6 +32,7 @@ include_once "includes/header.php";
                     ?>
                     <label for="num1">Lado 1: </label>
                     <input type="text" id="num1" name="num1" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
+                    
                     <label for="num2">Lado 2: </label>
                     <input type="text" id="num2" name="num2" value="<?php if (isset($_GET['lado2'])){echo $_GET['lado2'];} ?>">
                     <label for="num3">Lado 3: </label>
@@ -65,5 +66,44 @@ include_once "includes/header.php";
         ?>
         <input type="submit" name="enviar" value="Enviar datos">
     </form>
+    <?php
+    //Errores
+    
+    //Campos vacíos
+    if(isset($_GET['lado1Vacio'])){
+        echo "<p style='color:red;'>El lado 1 no puede estar vacío</p>";
+    }
+    if(isset($_GET['lado2Vacio'])){
+        echo "<p style='color:red;'>El lado 2 no puede estar vacío</p>";
+    }
+    if(isset($_GET['lado3Vacio'])){
+        echo "<p style='color:red;'>El lado 3 no puede estar vacío</p>";
+    }
+    //No numéricos
+    if(isset($_GET['lado1NaN'])){
+        echo "<p style='color:red;'>El lado 1 debe ser un número</p>";
+    }
+    if(isset($_GET['lado2NaN'])){
+        echo "<p style='color:red;'>El lado 2 debe ser un número</p>";
+    }
+    if(isset($_GET['lado3NaN'])){
+        echo "<p style='color:red;'>El lado 3 debe ser un número</p>";
+    }
+    //Negativos o cero
+    if(isset($_GET['lado1Negativo'])){
+        echo "<p style='color:red;'>El lado 1 debe ser un número positivo</p>";
+    }
+    if(isset($_GET['lado2Negativo'])){
+        echo "<p style='color:red;'>El lado 2 debe ser un número positivo</p>";
+    }
+    if(isset($_GET['lado3Negativo'])){
+        echo "<p style='color:red;'>El lado 3 debe ser un número positivo</p>";
+    }
+    //Triángulo no válido
+    if(isset($_GET['trianguloNoValido'])){
+        echo "<p style='color:red;'>Los lados introducidos no forman un triángulo válido</p>";
+    }
+    
+    ?>
 </body>
 </html>
