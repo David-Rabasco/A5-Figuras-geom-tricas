@@ -12,6 +12,12 @@
         public function calcularPerimetro(){
             return 4 * $this->lado1;
         }
+
+        public function __toString(){
+            return  "<h3>Has elegido un ". $this->tipoFigura . " con lado " . $this->lado1 . "</h3>" .
+                    " Área: " . round($this->calcularArea(),2) .
+                    " Perímetro: " . round($this->calcularPerimetro(),2);
+        }
     
     }
 ?>

@@ -63,6 +63,12 @@
                 return "Triángulo imposible";
             }
         }
+
+        public function __toString(){
+            return  "<h3>Has elegido un ". $this->tipoFigura . " con lados " . $this->lado1 . ", " . $this->lado2 . " y " . $this->lado3 . " </h3>" .
+                    " Área: " . round($this->calcularArea(),2) .
+                    " Perímetro: " . round($this->calcularPerimetro(),2);
+        }
         
     }
 ?>

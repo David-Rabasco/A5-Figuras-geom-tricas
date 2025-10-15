@@ -20,9 +20,7 @@ switch($_SESSION['figura']){
         $lado3 = $_POST['lado3'];
         $figura = new Triangulo($_SESSION['figura'], $lado1, $lado2, $lado3);
         if($figura->trianguloValido()){
-            echo "<h3>Has elegido un ". $figura->tipoFigura . " con lados " . $figura->lado1 . ", " . $figura->lado2 . " y " . $figura->lado3 . "</h3>";
-            echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
-            echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
+            echo $figura;
         } else {
             //Triangulo inválido vuelve a pedir los lados
             header("Location: lados.php?trianguloNoValido=true&lado1=$lado1&lado2=$lado2&lado3=$lado3");
@@ -33,23 +31,17 @@ switch($_SESSION['figura']){
         $lado1 = $_POST['lado1'];
         $lado2 = $_POST['lado2'];
         $figura = new Rectangulo($_SESSION['figura'], $lado1, $lado2);
-        echo "<h3>Has elegido un ". $figura->tipoFigura . " con lados " . $figura->lado1 . ", " . $figura->lado2 . "</h3>";
-        echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
-        echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
+        echo $figura;
         break;
     case 'cuadrado':
         $lado1 = $_POST['lado1'];
         $figura = new Cuadrado($_SESSION['figura'], $lado1);
-        echo "<h3>Has elegido un ". $figura->tipoFigura . " con lados " . $figura->lado1 . "</h3>";
-        echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
-        echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
+        echo $figura;
         break;
     case 'circulo':
         $lado1 = $_POST['lado1'];
         $figura = new Circulo($_SESSION['figura'], $lado1);
-        echo "<h3>Has elegido un ". $figura->tipoFigura . " con radio " . $figura->lado1 . "</h3>";
-        echo "<p>El área es " . round($figura->calcularArea(),2) . "</p>";
-        echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
+        echo $figura;
         break;
 }
 //Elimino variables de sesión

@@ -23,7 +23,6 @@ include_once "includes/header.php";
     <title>Lados</title>
 </head>
 <body>
-    <!-- PENDIENTE VALIDACION -->
     <form method="post" action="includes/validacion.php">
         <p>Introduce los lados</p>
         <?php
