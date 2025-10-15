@@ -1,10 +1,18 @@
 <?php
 session_start();
 
-//Si no tengo la variable de sesión de figura la creo
+  
+
+//Creo variable de sesión figura si la recibo por post
 if(isset($_POST['figura'])){
     $_SESSION['figura'] = isset($_POST['figura']) ? $_POST['figura']: "";
 }
+
+//Compruebo que exista la variable de sesión figura
+if(!isset($_SESSION['figura'])){
+    header("Location: index.php?error=noFigura");
+    exit();
+}  
 ?>
 
 <!DOCTYPE html>

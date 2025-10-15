@@ -1,5 +1,8 @@
-
-
+<?php
+session_start();
+//Elimino variables de sesión
+unset($_SESSION['figura']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -5,6 +5,11 @@ include "triangulo.php";
 include "circulo.php";
 
 session_start();
+//Compruebo que exista la variable de sesión figura
+if(!isset($_SESSION['figura'])){
+    header("Location: index.php?error=noFigura");
+    exit();
+}    
 //Actúo en función de la figura recibida:
 switch($_SESSION['figura']){
     case 'triangulo':
@@ -47,5 +52,7 @@ switch($_SESSION['figura']){
         echo "<p>El perímetro es " . round($figura->calcularPerimetro(),2) . "</p>";
         break;
 }
-
+//Elimino variables de sesión
+unset($_SESSION['figura']);
+?>
 
