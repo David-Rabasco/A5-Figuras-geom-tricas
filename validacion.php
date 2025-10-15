@@ -8,8 +8,9 @@
         $errores = "";
         $figura = $_SESSION['figura'];
         $lado1 = $_POST['num1'];
-        $lado2 = $_POST['num2'];
-        $lado3 = $_POST['num3'];
+        //Verifico si existen lados 2 y 3 para que no exploten las figuras con menos lados
+        if (isset($_POST['num2'])){$lado2 = $_POST['num2'];};
+        if (isset($_POST['num3'])){$lado3 = $_POST['num3'];};
 
         //LADO1
         require_once('./funciones.php');
@@ -40,59 +41,65 @@
             }
         } 
         //LADO2
-        if(ValidaCampoVacio($_POST['num2'])){
-            if(!$errores){
-                $errores .= "?lado2Vacio=true";
-            } else {
-                $errores .= "&lado2Vacio=true";
-            }
-        } else {
-            // Validar que es numérico
-            if(!is_numeric($_POST['num2'])){
+        //Solo si es triángulo o rectángulo
+        if($figura == 'triangulo' || $figura == 'rectangulo'){
+            if(ValidaCampoVacio($_POST['num2'])){
                 if(!$errores){
-                    $errores .= "?lado2NaN=true";
+                    $errores .= "?lado2Vacio=true";
                 } else {
-                    $errores .= "&lado2NaN=true";
+                    $errores .= "&lado2Vacio=true";
                 }
             } else {
-                //Validar que es positivo
-                if($_POST['num2'] <= 0){
+                // Validar que es numérico
+                if(!is_numeric($_POST['num2'])){
                     if(!$errores){
-                        $errores .= "?lado2Negativo=true";
+                        $errores .= "?lado2NaN=true";
                     } else {
-                        $errores .= "&lado2Negativo=true";
+                        $errores .= "&lado2NaN=true";
                     }
+                } else {
+                    //Validar que es positivo
+                    if($_POST['num2'] <= 0){
+                        if(!$errores){
+                            $errores .= "?lado2Negativo=true";
+                        } else {
+                            $errores .= "&lado2Negativo=true";
+                        }
+                    }
+                    
                 }
-                
             }
         } 
         //LADO3
-        if(ValidaCampoVacio($_POST['num3'])){
-            if(!$errores){
-                $errores .= "?lado3Vacio=true";
-            } else {
-                $errores .= "&lado3Vacio=true";
-            }
-        } else {
-            // Validar que es numérico
-            if(!is_numeric($_POST['num3'])){
+        //Solo si es triángulo
+        if($figura == 'triangulo'){
+            if(ValidaCampoVacio($_POST['num3'])){
                 if(!$errores){
-                    $errores .= "?lado3NaN=true";
+                    $errores .= "?lado3Vacio=true";
                 } else {
-                    $errores .= "&lado3NaN=true";
+                    $errores .= "&lado3Vacio=true";
                 }
             } else {
-                //Validar que es positivo
-                if($_POST['num3'] <= 0){
+                // Validar que es numérico
+                if(!is_numeric($_POST['num3'])){
                     if(!$errores){
-                        $errores .= "?lado3Negativo=true";
+                        $errores .= "?lado3NaN=true";
                     } else {
-                        $errores .= "&lado3Negativo=true";
+                        $errores .= "&lado3NaN=true";
                     }
+                } else {
+                    //Validar que es positivo
+                    if($_POST['num3'] <= 0){
+                        if(!$errores){
+                            $errores .= "?lado3Negativo=true";
+                        } else {
+                            $errores .= "&lado3Negativo=true";
+                        }
+                    }
+                    
                 }
-                
-            }
-        } 
+            } 
+        }
 
         if ($errores != ""){
         //VOLVER A LADOS Y PASAR VARIABLES RECIBIDAS + ERRORES
@@ -106,19 +113,17 @@
         header("Location: ./lados.php".$errores."&".$datosDevueltos);
         exit();
         } else {
-            // //IR A LA PAGINA DE CHECK
-            // echo "<form id='EnvioCheck' action='check.php' method='POST'>";
-            // echo "<input type='hidden' id='username' name='username' value='".$username."'>";
-            // echo "<input type='hidden' id='email' name='email' value='".$email."'>";
-            // echo "<input type='hidden' id='tienda' name='tienda' value='".$tienda."'>";
-            // $juego = "";
-            // foreach($juegos as $juego){
-            //     echo "<input type='hidden' name='juegos[]' value='".$juego."'>";
-            // }
-            // echo "<input type='hidden' id='pago' name='pago' value='".$pago."'>";
-            // echo "<input type='hidden' id='observaciones' name='observaciones' value='".$observaciones."'>";
-            // echo "</form>";
-            // echo "<script>document.getElementById('EnvioCheck').submit();</script>";
+            // //IR A LA PAGINA DE RESULTADO
+            echo "<form id='EnvioResultado' action='resultado.php' method='POST'>";
+            echo "<input type='hidden' id='lado1' name='lado1' value='".$lado1."'>";
+            if (isset($lado2)){
+            echo "<input type='hidden' id='lado2' name='lado2' value='".$lado2."'>";
+            }
+            if (isset($lado3)){
+            echo "<input type='hidden' id='lado3' name='lado3' value='".$lado3."'>";
+            }
+            echo "</form>";
+           echo "<script>document.getElementById('EnvioResultado').submit();</script>";
             
         }
         
