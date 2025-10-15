@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-  
-
 //Creo variable de sesión figura si la recibo por post
 if(isset($_POST['figura'])){
     $_SESSION['figura'] = isset($_POST['figura']) ? $_POST['figura']: "";
@@ -12,7 +10,9 @@ if(isset($_POST['figura'])){
 if(!isset($_SESSION['figura'])){
     header("Location: index.php?error=noFigura");
     exit();
-}  
+} 
+
+include_once "header.php";
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,6 @@ if(!isset($_SESSION['figura'])){
 </head>
 <body>
     <!-- PENDIENTE VALIDACION -->
-    <h1><?php echo $_SESSION['figura']; ?></h1>
     <form method="post" action="validacion.php">
         <p>Introduce los lados</p>
         <?php

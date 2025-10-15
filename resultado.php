@@ -9,7 +9,9 @@ session_start();
 if(!isset($_SESSION['figura'])){
     header("Location: index.php?error=noFigura");
     exit();
-}    
+}   
+include_once "header.php";
+
 //Actúo en función de la figura recibida:
 switch($_SESSION['figura']){
     case 'triangulo':
