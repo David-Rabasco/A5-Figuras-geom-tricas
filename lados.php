@@ -12,7 +12,7 @@ if(!isset($_SESSION['figura'])){
     exit();
 } 
 
-include_once "header.php";
+include_once "includes/header.php";
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ include_once "header.php";
 </head>
 <body>
     <!-- PENDIENTE VALIDACION -->
-    <form method="post" action="validacion.php">
+    <form method="post" action="includes/validacion.php">
         <p>Introduce los lados</p>
         <?php
             switch($_SESSION['figura']){

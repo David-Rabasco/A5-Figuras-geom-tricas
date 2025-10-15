@@ -1,8 +1,8 @@
 <?php
-include "rectangulo.php";
-include "cuadrado.php";
-include "triangulo.php";
-include "circulo.php";
+include "./figuras/Rectangulo.php";
+include "./figuras/Cuadrado.php";
+include "./figuras/Triangulo.php";
+include "./figuras/Circulo.php";
 
 session_start();
 //Compruebo que exista la variable de sesión figura
@@ -10,7 +10,7 @@ if(!isset($_SESSION['figura'])){
     header("Location: index.php?error=noFigura");
     exit();
 }   
-include_once "header.php";
+include_once "./includes/header.php";
 
 //Actúo en función de la figura recibida:
 switch($_SESSION['figura']){

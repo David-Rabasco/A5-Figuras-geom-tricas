@@ -1,7 +1,7 @@
 <?php
     //SI VENGO DE LADOS
     if(!isset($_POST['enviar'])){
-        header("Location: lados.php");
+        header("Location: ../lados.php");
         exit();
     } else {
         session_start();
@@ -110,11 +110,11 @@
         );
 
         $datosDevueltos = http_build_query($datosRecibidos);
-        header("Location: ./lados.php".$errores."&".$datosDevueltos);
+        header("Location: ../lados.php".$errores."&".$datosDevueltos);
         exit();
         } else {
             // //IR A LA PAGINA DE RESULTADO
-            echo "<form id='EnvioResultado' action='resultado.php' method='POST'>";
+            echo "<form id='EnvioResultado' action='../resultado.php' method='POST'>";
             echo "<input type='hidden' id='lado1' name='lado1' value='".$lado1."'>";
             if (isset($lado2)){
             echo "<input type='hidden' id='lado2' name='lado2' value='".$lado2."'>";
