@@ -21,41 +21,63 @@ include_once "includes/header.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #969696ff; /* fondo gris oscuro */
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .card-header h3 {
+            font-weight: bold;
+            text-align: center;
+            color: white;
+        }
+        .form-select, .form-control, .btn {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-4 col-md-6">
+            <div class="card-header bg-primary">
+                <h3>Introduce los lados</h3>
+            </div>
     <form method="post" action="includes/validacion.php">
-        <p>Introduce los lados</p>
         <?php
             switch($_SESSION['figura']){
                 case 'triangulo':
                     ?>
                     <label for="num1">Lado 1: </label>
-                    <input type="text" id="num1" name="num1" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
+                    <input type="text" id="num1" name="num1" class="form-control" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
                     
                     <label for="num2">Lado 2: </label>
-                    <input type="text" id="num2" name="num2" value="<?php if (isset($_GET['lado2'])){echo $_GET['lado2'];} ?>">
+                    <input type="text" id="num2" name="num2" class="form-control" value="<?php if (isset($_GET['lado2'])){echo $_GET['lado2'];} ?>">
                     <label for="num3">Lado 3: </label>
-                    <input type="text" id="num3" name="num3" value="<?php if (isset($_GET['lado3'])){echo $_GET['lado3'];} ?>">
+                    <input type="text" id="num3" name="num3" class="form-control" value="<?php if (isset($_GET['lado3'])){echo $_GET['lado3'];} ?>">
                     <?php
                     break;
                 case 'rectangulo':
                     ?>
                     <label for="num1">Lado 1: </label>
-                    <input type="text" id="num1" name="num1" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
+                    <input type="text" id="num1" name="num1" class="form-control" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
                     <label for="num2">Lado 2: </label>
-                    <input type="text" id="num2" name="num2" value="<?php if (isset($_GET['lado2'])){echo $_GET['lado2'];} ?>">
+                    <input type="text" id="num2" name="num2" class="form-control" value="<?php if (isset($_GET['lado2'])){echo $_GET['lado2'];} ?>">
                     <?php
                     break;
                 case 'cuadrado':
                     ?>
                     <label for="num1">Lado 1: </label>
-                    <input type="text" id="num1" name="num1" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
+                    <input type="text" id="num1" name="num1" class="form-control" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
                     <?php
                     break;
                 case 'circulo':
                     ?>
                     <label for="num1">Radio: </label>
-                    <input type="text" id="num1" name="num1" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
+                    <input type="text" id="num1" name="num1" class="form-control" value="<?php if (isset($_GET['lado1'])){echo $_GET['lado1'];} ?>">
                     <?php
                     break;
                 case '':
@@ -104,5 +126,8 @@ include_once "includes/header.php";
     }
     
     ?>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
